@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Электронный журнал</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+    </style>
+  </head>
+  <body>
+    <script src="./js/main.js" defer></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="./js/modules/navbarInit.js" defer></script>
+    <script src="./js/modules/firstTab.js" defer></script>
+    <script src="./js/modules/secondTab.js" defer></script>
+    <script src="./js/modules/thirdTab.js" defer></script>
+    <script src="./js/modules/fourthTab.js"></script>
+    <div class="main">
+      <ul class="navbar">
+        <li>
+          <button data-change-tab="0" class="selected">
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="Interface / Download">
+                <path
+                  id="Vector"
+                  d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+            <span>Загрузка</span>
+          </button>
+        </li>
+        <li>
+          <button data-change-tab="1">
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.56078 20.2501L20.5608 8.25011L15.7501 3.43945L3.75012 15.4395V20.2501H8.56078ZM15.7501 5.56077L18.4395 8.25011L16.5001 10.1895L13.8108 7.50013L15.7501 5.56077ZM12.7501 8.56079L15.4395 11.2501L7.93946 18.7501H5.25012L5.25012 16.0608L12.7501 8.56079Z"
+                fill="#white"
+              />
+            </svg>
+            <span>Редактирование</span>
+          </button>
+        </li>
+        <li>
+          <button data-change-tab="2">
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 12H21M9 4L9 20M6.2 20H17.8C18.9201 20 19.4802 20 19.908 19.782C20.2843 19.5903 20.5903 19.2843 20.782 18.908C21 18.4802 21 17.9201 21 16.8V7.2C21 6.0799 21 5.51984 20.782 5.09202C20.5903 4.71569 20.2843 4.40973 19.908 4.21799C19.4802 4 18.9201 4 17.8 4H6.2C5.0799 4 4.51984 4 4.09202 4.21799C3.71569 4.40973 3.40973 4.71569 3.21799 5.09202C3 5.51984 3 6.07989 3 7.2V16.8C3 17.9201 3 18.4802 3.21799 18.908C3.40973 19.2843 3.71569 19.5903 4.09202 19.782C4.51984 20 5.07989 20 6.2 20Z"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>Статистика (таблица)</span>
+          </button>
+        </li>
+        <li>
+          <button data-change-tab="3">
+            <svg
+              fill="#white"
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              id="diagram-bar"
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon line"
+            >
+              <path
+                id="primary"
+                d="M19,15v2m-8-4v4m4-6v6M7,9v8M3,3V20a1,1,0,0,0,1,1H21"
+                style="
+                  fill: none;
+                  stroke: white;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 1.5;
+                "
+              ></path>
+            </svg>
+            <span>Статистика (график)</span>
+          </button>
+        </li>
+        <li>
+          <button data-change-tab="4">
+            <svg
+              fill="white"
+              height="800px"
+              width="800px"
+              version="1.1"
+              id="XMLID_303_"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 24 24"
+              enable-background="new 0 0 24 24"
+              xml:space="preserve"
+            >
+              <g id="help">
+                <path
+                  d="M13,18h-2v-2.9c0-1.6,1-3,2.4-3.4C15.6,11,17,9.1,17,7c0-2.7-2.4-5.1-5-5.1c-1.4,0-2.7,0.5-3.6,1.5 C7.5,4.3,6.9,5.6,6.9,6.9h-2C4.9,5,5.6,3.3,7,2s2.9-2,5-2c3.7,0,7,3.3,7,7.1c0,3.1-2,5.8-5,6.7c-0.6,0.2-1,0.8-1,1.5V18z"
+                />
+                <path
+                  d="M12,20c1.1,0,2,0.9,2,2s-0.9,2-2,2s-2-0.9-2-2S10.9,20,12,20z"
+                />
+              </g>
+            </svg>
+            <span>Помощь</span>
+          </button>
+        </li>
+        <li>
+          <button data-change-tab="5">
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 512 512"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <g
+                id="Page-1"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g
+                  id="about-white"
+                  fill="white"
+                  transform="translate(42.666667, 42.666667)"
+                >
+                  <path
+                    d="M213.333333,3.55271368e-14 C95.51296,3.55271368e-14 3.55271368e-14,95.51168 3.55271368e-14,213.333333 C3.55271368e-14,331.153707 95.51296,426.666667 213.333333,426.666667 C331.154987,426.666667 426.666667,331.153707 426.666667,213.333333 C426.666667,95.51168 331.154987,3.55271368e-14 213.333333,3.55271368e-14 Z M213.333333,384 C119.227947,384 42.6666667,307.43872 42.6666667,213.333333 C42.6666667,119.227947 119.227947,42.6666667 213.333333,42.6666667 C307.44,42.6666667 384,119.227947 384,213.333333 C384,307.43872 307.44,384 213.333333,384 Z M240.04672,128 C240.04672,143.46752 228.785067,154.666667 213.55008,154.666667 C197.698773,154.666667 186.713387,143.46752 186.713387,127.704107 C186.713387,112.5536 197.99616,101.333333 213.55008,101.333333 C228.785067,101.333333 240.04672,112.5536 240.04672,128 Z M192.04672,192 L234.713387,192 L234.713387,320 L192.04672,320 L192.04672,192 Z"
+                    id="Shape"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <span>О разработчике</span>
+          </button>
+        </li>
+      </ul>
+      <div class="content-wrapper">
+        <div class="content active" data-tab="0">
+          <input type="file" name="test" data-upload accept=".csv,.txt"/>
+          <div class="table-wrapper" data-table></div>
+        </div>
+        <div class="content" data-tab="1">
+          <form class="input-grid" data-reflect-id="">
+            <div class="full-name-input input-group">
+              <label for="name">ФИО</label>
+              <input type="text" name="name" data-reflect-field="name" disabled>
+            </div>
+            <div class="school-class-input input-group">
+              <label for="class">Класс</label>
+              <input type="text" name="class" data-reflect-field="class" disabled>
+            </div>
+            <div class="informatics-input input-group">
+              <label for="informatics">Информатика</label>
+              <select name="informatics" id="informatics" data-reflect-field="informatics" disabled>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="physics-input input-group">
+              <label for="physics">Физика</label>
+              <select name="physics" data-reflect-field="physics" disabled>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="mathemathics-input input-group">
+              <label for="mathemathics">Математика</label>
+              <select name="mathemathics" data-reflect-field="mathemathics" disabled>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="literature-input input-group">
+              <label for="literature">Литература</label>
+              <select name="literature" data-reflect-field="literature" disabled>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="music-input input-group">
+              <label for="music">Музыка</label>
+              <select name="music" data-reflect-field="music" disabled>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </form>
+          <div class="controls">
+            <button class="rounded-button" data-add>Добавить пользователя</button>
+            <button class="rounded-button" data-save disabled>Сохранить</button>
+            <button class="rounded-button" data-download>Скачать</button>
+          </div>
+          <div class="table-wrapper" data-table-editable></div>
+        </div>
+        <div class="content" data-tab="2">
+          <h2>Информатика</h2>
+          <div class="table-wrapper" data-table-subject="informatics"></div>
+          <h2>Физика</h2>
+          <div class="table-wrapper" data-table-subject="physics"></div>
+          <h2>Математика</h2>
+          <div class="table-wrapper" data-table-subject="mathemathics"></div>
+          <h2>Литература</h2>
+          <div class="table-wrapper" data-table-subject="literature"></div>
+          <h2>Музыка</h2>
+          <div class="table-wrapper" data-table-subject="music"></div>
+        </div>
+        <div class="content" data-tab="3">
+          <div class="chart" data-chart-wrapper>
+            <canvas id="informaticsChart"></canvas>
+          </div>
+          <div class="buttons-group">
+            <button class="rounded-button" data-switch-to="informatics">Информатика</button>
+            <button class="rounded-button" data-switch-to="physics">Физика</button>
+            <button class="rounded-button" data-switch-to="mathemathics">Математика</button>
+            <button class="rounded-button" data-switch-to="literature">Литература</button>
+            <button class="rounded-button" data-switch-to="music">Музыка</button>
+          </div>
+        </div>
+        <div class="content" data-tab="4">
+          <details open>
+            <summary><b>Вкладка "Загрузка оценок"</b></summary>
+            Здесь вы можете легко загрузить оценки в формате .csv или .txt.
+            Просто выберите файл, нажмите кнопку "Загрузить" и удивитесь
+            удобству.
+          </details>
+          <details>
+            <summary><b>Вкладка "Журнал"</b></summary>
+            Создавайте и редактируйте журнал, добавляйте
+            записи оценок учеников в удобной таблице. Управляйте данными с
+            помощью кнопок удаления и редактирования для каждого ученика.
+          </details>
+          <details>
+            <summary><b>Вкладка "Статистика (Табличный вид)"</b></summary>
+            Получайте подробную статистику для каждого класса и предмета:
+            средняя оценка, медиана, количество и процент учеников для каждой
+            оценки. А также общая статистика для всех учеников.
+          </details>
+          <details>
+            <summary><b>Вкладка "Статистика (Графический вид)"</b></summary>
+            Визуализируйте вашу статистику с помощью графиков. Легко
+            анализируйте тренды и распределения оценок для более наглядного
+            представления данных.
+          </details>
+          <details>
+            <summary><b>Вкладка "Помощь"</b></summary>
+            Вы здесь.
+          </details>
+          <details>
+            <summary><b>Вкладка "О разработчике"</b></summary>
+            Немножко информации о создателе сие великолепия.
+          </details>
+        </div>
+        <div class="content" data-tab="5">
+          <div>
+            <h3>Мардынская Людмила Сергеевна</h3>
+            <p>ИА-232</p>
+            <p>
+              Email:
+              <a href="mailto:luda.mardinskay.123@gmail.com"
+                >luda.mardinskay.123@gmail.com</a
+              >
+            </p>
+            <img
+              src="./assets/cat.jpg"
+              alt="Котик сидит в наушниках напротив ноутбука, рисунок"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
